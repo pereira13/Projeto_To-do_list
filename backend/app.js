@@ -11,7 +11,7 @@ const App = () => {
   const getTodos = async () => {
     try {
       // Faz uma requisição GET para obter as tarefas
-      const response = await axios.get('http://localhost:5000/todos');
+      const response = await axios.get('https://projeto-to-do-list-w1q9.onrender.com/todos');
       // Atualiza o estado com a lista de tarefas recebida
       setTodos(response.data);
     } catch (err) {
@@ -31,7 +31,7 @@ const App = () => {
     try {
       const newTodo = { description }; // Cria um objeto com a descrição da nova tarefa
       // Faz uma requisição POST para adicionar a nova tarefa
-      await axios.post('http://localhost:5000/todos', newTodo);
+      await axios.post('https://projeto-to-do-list-w1q9.onrender.com/todos', newTodo);
       getTodos(); // Atualiza a lista de tarefas
       setDescription(''); // Limpa o campo de entrada após adicionar a tarefa
     } catch (err) {
@@ -44,7 +44,7 @@ const App = () => {
   const deleteTodo = async (id) => {
     try {
       // Faz uma requisição DELETE para remover a tarefa pelo ID
-      await axios.delete(`http://localhost:5000/todos/${id}`);
+      await axios.delete(`https://projeto-to-do-list-w1q9.onrender.com/todos/${id}`);
       getTodos(); // Atualiza a lista de tarefas após a remoção
     } catch (err) {
       // Em caso de erro, imprime a mensagem de erro no console
@@ -60,6 +60,7 @@ const App = () => {
           type="text"
           value={description} // Valor do campo de entrada ligado ao estado
           onChange={(e) => setDescription(e.target.value)} // Atualiza o estado com o valor digitado
+          placeholder="Adicione uma nova tarefa" // Texto de placeholder para o campo de entrada
         />
         <button type="submit">Adicionar</button> {/* Botão para enviar o formulário */}
       </form>

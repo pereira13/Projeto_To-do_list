@@ -14,8 +14,8 @@ function Login({ setToken, setUser }) {
   const handleLogin = async (event) => {
     event.preventDefault(); // Previne o comportamento padrão do formulário
     try {
-      // Faz uma requisição POST para o endpoint de login
-      const response = await axios.post('http://localhost:5000/login', { email, senha });
+      // Faz uma requisição POST para o endpoint de login usando a variável de ambiente
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, { email, senha });
       
       // Armazena o token e as informações do usuário no estado
       setToken(response.data.token);
