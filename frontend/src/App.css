@@ -1,0 +1,281 @@
+/* Reset de margens e padding */
+* {
+  margin: 0; /* Remove todas as margens padrão */
+  padding: 0; /* Remove todos os preenchimentos padrão */
+  box-sizing: border-box; /* Inclui padding e border na largura e altura total dos elementos */
+}
+
+/* Fontes e layout básicos */
+body {
+  font-family: 'Arial', sans-serif; /* Define a fonte padrão da aplicação */
+  line-height: 1.6; /* Define a altura da linha para melhorar a legibilidade */
+  min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da janela */
+  background-color: var(--bg-color); /* Define a cor de fundo utilizando variável CSS */
+  color: var(--text-color); /* Define a cor do texto utilizando variável CSS */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adiciona transições suaves para mudanças de cor */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Organiza os elementos em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza os itens verticalmente */
+  padding: 20px; /* Adiciona um espaçamento interno */
+}
+
+/* Modo Claro */
+:root {
+  --bg-color: #f7f7f7; /* Cor de fundo para o modo claro */
+  --text-color: #333; /* Cor do texto para o modo claro */
+  --input-bg-color: #fff; /* Cor de fundo dos inputs */
+  --input-border-color: #ddd; /* Cor da borda dos inputs */
+  --button-bg-color: #007bff; /* Cor de fundo dos botões */
+  --button-hover-bg-color: #0056b3; /* Cor de fundo dos botões ao passar o mouse */
+  --task-bg-color: white; /* Cor de fundo para as tarefas */
+  --task-border-color: rgba(0, 0, 0, 0.1); /* Cor da borda das tarefas */
+  --task-completed-bg-color: #d4edda; /* Cor de fundo para tarefas concluídas */
+  --task-completed-border-color: #28a745; /* Cor da borda para tarefas concluídas */
+  --task-not-completed-bg-color: white; /* Cor de fundo para tarefas não concluídas */
+  --task-not-completed-border-color: rgba(0, 0, 0, 0.1); /* Cor da borda para tarefas não concluídas */
+  --task-error-color: #f8d7da; /* Cor de fundo para mensagens de erro */
+  --task-error-border-color: #dc3545; /* Cor da borda para mensagens de erro */
+}
+
+/* Modo Escuro */
+body.dark {
+  --bg-color: #1e1e1e; /* Cor de fundo para o modo escuro */
+  --text-color: #f7f7f7; /* Cor do texto para o modo escuro */
+  --input-bg-color: #2d2d2d; /* Cor de fundo dos inputs no modo escuro */
+  --input-border-color: #444; /* Cor da borda dos inputs no modo escuro */
+  --button-bg-color: #1a73e8; /* Cor de fundo dos botões no modo escuro */
+  --button-hover-bg-color: #1667c1; /* Cor de fundo dos botões ao passar o mouse no modo escuro */
+  --task-bg-color: #333; /* Cor de fundo para as tarefas no modo escuro */
+  --task-border-color: rgba(255, 255, 255, 0.1); /* Cor da borda das tarefas no modo escuro */
+  --task-completed-bg-color: #4caf50; /* Cor de fundo para tarefas concluídas no modo escuro */
+  --task-completed-border-color: #2e7d32; /* Cor da borda para tarefas concluídas no modo escuro */
+  --task-not-completed-bg-color: #333; /* Cor de fundo para tarefas não concluídas no modo escuro */
+  --task-not-completed-border-color: rgba(255, 255, 255, 0.1); /* Cor da borda para tarefas não concluídas no modo escuro */
+}
+
+/* Estilos de Títulos */
+h1 {
+  font-size: 2.2rem; /* Tamanho da fonte do título */
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+  text-align: center; /* Centraliza o texto do título */
+}
+
+/* Layout principal */
+.container, .login-container, .register-container, .tarefas-container {
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Organiza os elementos em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  background-color: var(--bg-color); /* Cor de fundo do container usando variável CSS */
+  padding: 25px; /* Adiciona um espaçamento interno ao container */
+  border-radius: 15px; /* Arredonda as bordas do container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Adiciona sombra ao container */
+  max-width: 900px; /* Define a largura máxima do container */
+  width: 100%; /* A largura do container ocupará 100% do espaço disponível */
+  transition: all 0.3s ease; /* Adiciona transições suaves para mudanças de estilo */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .container, .login-container, .register-container, .tarefas-container {
+    padding: 20px; /* Ajusta o padding para telas menores */
+    max-width: 100%; /* Permite que o container ocupe 100% da largura em telas pequenas */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Reduz o tamanho da fonte do título em telas pequenas */
+  }
+
+  form {
+    gap: 10px; /* Ajusta o espaço entre os campos do formulário */
+  }
+
+  button {
+    font-size: 12px; /* Reduz o tamanho da fonte dos botões em telas pequenas */
+    padding: 8px; /* Ajusta o padding dos botões em telas pequenas */
+  }
+
+  .tarefa-acoes {
+    flex-direction: row; /* Mantém as ações das tarefas em linha */
+    gap: 5px; /* Espaçamento entre os botões de ação */
+  }
+}
+
+/* Formulários */
+form {
+  width: 100%; /* Largura do formulário ocupa 100% do espaço disponível */
+  max-width: 500px; /* Largura máxima do formulário */
+  display: flex; /* Usa flexbox para o layout do formulário */
+  flex-direction: column; /* Organiza os campos do formulário em coluna */
+  gap: 15px; /* Espaçamento entre os campos do formulário */
+}
+
+/* Inputs e Selects */
+input, select {
+  width: 100%; /* Largura dos inputs e selects ocupa 100% do espaço disponível */
+  padding: 12px; /* Adiciona preenchimento interno aos inputs e selects */
+  border-radius: 8px; /* Arredonda as bordas dos inputs e selects */
+  border: 1px solid var(--input-border-color); /* Define a cor da borda dos inputs */
+  background-color: var(--input-bg-color); /* Cor de fundo dos inputs usando variável CSS */
+  color: var(--text-color); /* Cor do texto nos inputs */
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; /* Adiciona transições suaves para mudanças de estilo */
+}
+
+input:focus, select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adiciona sombra ao redor do input quando está em foco */
+}
+
+/* Botões */
+button {
+  background-color: var(--button-bg-color); /* Cor de fundo dos botões usando variável CSS */
+  color: white; /* Cor do texto nos botões */
+  border: none; /* Remove borda padrão dos botões */
+  cursor: pointer; /* Altera o cursor para indicar que o botão é clicável */
+  padding: 10px 20px; /* Adiciona preenchimento interno aos botões */
+  font-size: 14px; /* Tamanho da fonte dos botões */
+  border-radius: 5px; /* Arredonda as bordas dos botões */
+  transition: background-color 0.3s, transform 0.2s ease; /* Adiciona transições suaves para mudanças de estilo */
+  width: auto; /* Evita que o botão ocupe 100% da largura */
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color); /* Cor de fundo dos botões ao passar o mouse */
+  transform: translateY(-1px); /* Efeito de levantar o botão ao passar o mouse */
+}
+
+/* Estilo da Tabela */
+table {
+  width: 100%; /* Largura da tabela ocupa 100% do espaço disponível */
+  border-collapse: collapse; /* Remove o espaçamento entre as células da tabela */
+  margin: 20px 0; /* Margem superior e inferior da tabela */
+  border-radius: 2px; /* Arredonda as bordas da tabela */
+}
+
+th, td {
+  padding: 10px; /* Preenchimento interno das células */
+  text-align: left; /* Alinha o texto à esquerda */
+  border-bottom: 1px solid var(--task-border-color); /* Borda inferior das células usando variável CSS */
+  border-radius: 2px; 
+}
+
+th {
+  background-color: var(--button-bg-color); /* Cor de fundo dos cabeçalhos da tabela */
+  color: white; /* Cor do texto dos cabeçalhos da tabela */
+}
+
+td {
+  background-color: var(--task-bg-color); /* Cor de fundo das células da tabela */
+  white-space: nowrap; /* Impede quebra de linha dentro das células */
+  text-overflow: ellipsis; /* Exibe reticências para texto longo */
+  overflow: hidden; /* Esconde texto que ultrapassa o tamanho da célula */
+}
+
+/* Estilo das tarefas concluídas */
+.tarefa-concluida {
+  background-color: var(--task-completed-bg-color); /* Cor verde claro para tarefas concluídas */
+  border-left: 5px solid var(--task-completed-border-color); /* Borda esquerda verde para tarefas concluídas */
+  border-radius: 2px; /* Arredonda as bordas */
+}
+
+/* Estilo das tarefas não concluídas */
+.tarefa-nao-concluida {
+  background-color: var(--task-not-completed-bg-color); /* Cor branca para tarefas não concluídas */
+  border-left: 5px solid var(--task-not-completed-border-color); /* Borda esquerda cinza clara para tarefas não concluídas */
+  border-radius: 2px; /* Arredonda as bordas */
+}
+
+/* Responsividade para Tabela */
+@media (max-width: 768px) {
+  table, th, td {
+    display: block; /* Transforma células da tabela em blocos para melhor visualização em telas pequenas */
+    width: 100%; /* Largura da tabela, cabeçalhos e células ocupa 100% do espaço disponível */
+  }
+
+  td {
+    display: flex; /* Usa flexbox para layout das células */
+    justify-content: space-between; /* Alinha os itens nas células */
+    align-items: center; /* Centraliza verticalmente os itens nas células */
+  }
+
+  th {
+    text-align: left; /* Alinha cabeçalhos à esquerda */
+    display: none; /* Oculta cabeçalhos em telas pequenas */
+  }
+}
+
+/* Div de Ações (botões de editar, concluir, deletar) */
+.tarefa-acoes {
+  display: flex; /* Usa flexbox para layout das ações */
+  justify-content: flex-start; /* Alinha as ações à esquerda */
+  gap: 10px; /* Espaçamento entre os botões de ação */
+  align-items: center; /* Centraliza verticalmente os botões de ação */
+}
+
+/* Botões de ação */
+.edit-btn, .status-btn, .delete-btn {
+  width: 35px; /* Largura dos botões de ação */
+  height: 35px; /* Altura dos botões de ação */
+  display: flex; /* Usa flexbox para layout dos botões */
+  justify-content: center; /* Centraliza o ícone no botão */
+  align-items: center; /* Centraliza verticalmente o ícone no botão */
+  font-size: 16px; /* Tamanho da fonte dos ícones */
+  padding: 5px; /* Preenchimento interno dos botões */
+  border-radius: 50%; /* Arredonda os botões para formato circular */
+  transition: background-color 0.3s; /* Transição suave para mudanças de cor */
+}
+
+.edit-btn {
+  background-color: #ffcc00; /* Cor de fundo para botões de editar */
+}
+
+.edit-btn:hover {
+  background-color: #e6b800; /* Cor de fundo ao passar o mouse para botões de editar */
+}
+
+.status-btn {
+  background-color: #28a745; /* Cor de fundo para botões de concluir/desmarcar */
+}
+
+.status-btn:hover {
+  background-color: #218838; /* Cor de fundo ao passar o mouse para botões de concluir/desmarcar */
+}
+
+.delete-btn {
+  background-color: #dc3545; /* Cor de fundo para botões de deletar */
+}
+
+.delete-btn:hover {
+  background-color: #c82333; /* Cor de fundo ao passar o mouse para botões de deletar */
+}
+
+/* Estilos de Prioridade */
+.prioridade {
+  font-weight: bold; /* Torna o texto da prioridade em negrito */
+  padding: 5px 10px; /* Preenchimento interno para a caixa de prioridade */
+  border-radius: 5px; /* Arredonda as bordas da caixa de prioridade */
+  color: white; /* Cor do texto da prioridade */
+  text-align: center; /* Centraliza o texto da prioridade */
+}
+
+.prioridade.alta {
+  background-color: #d9534f; /* Cor de fundo para prioridade alta */
+}
+
+.prioridade.media {
+  background-color: #f0ad4e; /* Cor de fundo para prioridade média */
+}
+
+.prioridade.baixa {
+  background-color: #5bc0de; /* Cor de fundo para prioridade baixa */
+}
+
+/* Mensagem de erro */
+.error {
+  color: red; /* Cor do texto para mensagens de erro */
+  margin-top: 10px; /* Espaçamento acima da mensagem de erro */
+}
+
+/* Transições suaves para o modo claro/escuro */
+body.dark {
+  transition: background-color 0.3s, color 0.3s; /* Adiciona transições suaves para mudanças de modo */
+}
