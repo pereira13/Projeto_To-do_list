@@ -14,20 +14,16 @@ function Login({ setToken, setUser }) {
   const handleLogin = async (event) => {
     event.preventDefault(); // Previne o comportamento padrão do formulário
     try {
-      // Faz uma requisição POST para o endpoint de login usando a variável de ambiente
+      // Corrigir a URL removendo a barra duplicada
       const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, { email, senha });
-      
-      // Armazena o token e as informações do usuário no estado
       setToken(response.data.token);
       setUser(response.data.user);
-      
-      // Redireciona o usuário para a página de tarefas após o login bem-sucedido
       navigate('/tarefas'); 
     } catch (error) {
-      // Exibe um erro no console se a requisição falhar
       console.error('Erro ao fazer login:', error);
     }
   };
+  
 
   return (
     <div className="login-container">
