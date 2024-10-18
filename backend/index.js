@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken'); // Importa o módulo jsonwebtoken para cria
 const bcrypt = require('bcryptjs'); // Importa o módulo bcryptjs para hash e verificação de senhas
 
 const app = express(); // Cria uma instância do aplicativo Express
+const port = process.env.PORT || 5000; // Define a porta a partir da variável de ambiente ou usa 5000
 
 // Configurar CORS para permitir requisições do frontend hospedado no Vercel
 app.use(cors({ 
