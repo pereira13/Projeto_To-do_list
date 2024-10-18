@@ -1,5 +1,4 @@
 const { Client } = require('pg');
-
 // Configurações do cliente PostgreSQL
 const client = new Client({
     user: 'postgres',        
@@ -7,7 +6,6 @@ const client = new Client({
     password: 'pereira13',      
     port: 5432,
 });
-
 async function createDatabase() {
     try {
         // Conectando ao PostgreSQL
@@ -15,7 +13,6 @@ async function createDatabase() {
         
         // Nome do banco de dados 
         const dbName = 'to_list_db';
-
         // Comando para criar o banco de dados
         await client.query(`CREATE DATABASE ${dbName}`);
         console.log(`Banco de dados ${dbName} criado com sucesso!`);
@@ -26,5 +23,4 @@ async function createDatabase() {
         await client.end();
     }
 }
-
 createDatabase();
