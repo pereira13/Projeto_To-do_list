@@ -1,13 +1,17 @@
-const { Pool } = require('pg'); // Importa a classe Pool do módulo pg para gerenciar conexões com o banco de dados PostgreSQL
+const { Pool } = require('pg');
 
-// Cria uma nova instância de Pool com as configurações do banco de dados
 const pool = new Pool({
-  user: 'postgres', // Nome de usuário do banco de dados
-  host: 'localhost', // Host onde o banco de dados está sendo executado
-  database: 'to_list_db', // Nome do banco de dados a ser utilizado
-  password: 'pereira13', // Senha do usuário do banco de dados
-  port: 5432, // Porta padrão do PostgreSQL
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
-// Exporta a instância do pool para que possa ser utilizada em outros módulos
-module.exports = pool;
+pool.connect(err => {
+  if (err) {
+    console.error('Erro ao conectar ao banco de dados', err);
+  } else {
+    console.log('Conectado ao banco de dados');
+  }
+});
