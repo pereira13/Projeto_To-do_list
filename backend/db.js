@@ -1,5 +1,4 @@
 const { Pool } = require('pg');
-
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -15,3 +14,6 @@ pool.connect(err => {
     console.log('Conectado ao banco de dados');
   }
 });
+
+module.exports = pool;
+

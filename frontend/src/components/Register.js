@@ -12,8 +12,8 @@ function Register() {
   const handleRegister = async (event) => {
     event.preventDefault(); // Previne o comportamento padrão do formulário
     try {
-      // Faz uma requisição POST para o endpoint de registro
-      const response = await axios.post('http://localhost:5000/register', { nome, email, senha, celular });
+      // Faz uma requisição POST para o endpoint de registro usando a variável de ambiente
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/register`, { nome, email, senha, celular });
       console.log('Usuário registrado:', response.data); // Exibe a resposta no console após o registro bem-sucedido
       
       // Redireciona para a página inicial após o registro
